@@ -19,4 +19,10 @@ class BaseController extends Controller
     public function contact(){
         return view('front.contact');
     }
+    public function cart(){
+        return view('front.cart');
+    }
+    public function productView(){
+        return view('front.productView');
+    }
 }
