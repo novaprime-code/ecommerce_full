@@ -97,6 +97,6 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{asset('/build/js/custom.min.js')}}"></script>
-	
+	@stack('delete_ajax')
   </body>
 </html>

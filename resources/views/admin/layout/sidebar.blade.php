@@ -38,6 +38,13 @@
                 <li><a href="index3.html">Dashboard3</a></li>
               </ul>
             </li>
+            <li class=""><a><i class="fa fa-home"></i> Product Manager <span class="fa fa-chevron-down"></span></a>
+              <ul class="nav child_menu" style="display: none;">
+                <li class="current-page"><a href="{{route('product.list')}}">List</a></li>
+                <li><a href="{{route('product.create')}}">Create</a></li>
+                <li><a href="index3.html">Dashboard3</a></li>
+              </ul>
+            </li>
           
           
           </ul>

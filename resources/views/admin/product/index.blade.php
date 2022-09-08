@@ -7,29 +7,35 @@
     <thead>
         <tr>
             <th>S. No.</th>
+            <th>Product Name</th>
             <th>Category Name</th>
-            <th>Parent Category Name</th>
+            <th>Price</th>
+            <th>images</th>
             <th>Create Date</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($categories as $key => $category)
+        @foreach ($products as $key => $product)
             
         <tr>
             <td>{{ $key+1}}</td>
-            <td>{{$category->name }}</td>
+            <td>{{$product->name }}</td>
             <td>
-                @if ($category->category_id)
-                {{$category->parent->name}}
+                @if ($product->category_id)
+                {{$product->category->name}}
                 @else
                     No Parent Category
                 @endif
             </td>
-            <td>{{$category->created_at }}</td>
+            <td>{{$product->price }}</td>
             <td>
-                <a href="{{route('category.edit',$category->id)}}" class="btn btn-warning fa fa-edit rounded shadow-3"></a>
-                <a href="javascript::void(0)" class="btn btn-danger fa fa-trash rounded shadow category_delete" data-id="{{$category->id}}"></a>
+                <img src="{{asset('uploads/products/'.$product->image)}}" alt="{{$product->name." image "}}" style="width:100%;height:80px;">
+            </td>
+            <td>{{$product->created_at }}</td>
+            <td>
+                <a href="{{route('product.edit',$product->id)}}" class="btn btn-warning fa fa-edit rounded shadow-3"></a>
+                <a href="javascript::void(0)" class="btn btn-danger fa fa-trash rounded shadow product_delete" data-id="{{$product->id}}"></a>
             </td>
         </tr>
         @endforeach
@@ -61,11 +67,11 @@
 
     </script> --}}
     	<script>
-            $('.category_delete').on('click',function(){
-                if(confirm('Are you delete this category.')){
+            $('.product_delete').on('click',function(){
+                if(confirm('Are you delete this product.')){
                 var id = $(this).data('id');
                 $.ajax({
-                    url:'{{route("category.delete")}}',
+                    url:'{{route("product.delete")}}',
                     method:'post',
                     data:{
                         _token: "{{ csrf_token() }}",
