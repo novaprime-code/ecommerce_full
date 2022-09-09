@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductDetail;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CategoryController;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -123,7 +125,46 @@ class ProductController extends Controller
     {
         $id = $request->id;
         $product = Product::find($id);
-        $product->delete();
+        // $product->delete();
+        $imagePath = Product::select('image')->where('id', $id)->first();
+
+        $filePath = public_path('uploads/products/'.$imagePath->image);
+
+        if (file_exists($filePath)) {
+
+                  unlink($filePath);
+
+                  Product::where('id', $id)->delete();
+
+       }else{
+
+        Product::where('id', $id)->delete();
+       }
         return response()->json('success');
+    }
+    public function extraDetails(Request $request)
+    {
+     $id = $request->id;
+     $product = Product::where('id', $id)->with('ProductDetail')->first();
+     return view('admin.product.extraDetails', compact('id','product'));
+    }
+    public function extraDetailsStore(Request $request)
+    {
+     var_dump($request->id);
+     $id = $request->id;
+     $data = array(
+        'title' => $request->title,
+        'product_id' => $id,
+        'total_items' => $request->total_items,
+        'description' => $request->description,
+
+     );
+     $details = ProductDetail::updateOrCreate(
+        ['product_id' => $id],
+        $data);
+        return redirect()->route('product.list');
+    //  $id = $request->id;
+    //  return view('admin.product.extraDetails');
+
     }
 }

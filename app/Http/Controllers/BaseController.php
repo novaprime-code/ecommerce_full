@@ -8,7 +8,9 @@ class BaseController extends Controller
 {
     //
     public function home(){
-        return view('front.home');
+        $products = Product::get();
+        $new_products = Product::limit(6)->latest();
+        return view('front.home', compact('products', 'new_products'));
     }
     public function specialOffer(){
         return view('front.specialOffer');

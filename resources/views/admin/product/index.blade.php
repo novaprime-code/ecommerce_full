@@ -11,6 +11,7 @@
             <th>Category Name</th>
             <th>Price</th>
             <th>images</th>
+            <th>Extra Details</th>
             <th>Create Date</th>
             <th>Action</th>
         </tr>
@@ -31,6 +32,11 @@
             <td>{{$product->price }}</td>
             <td>
                 <img src="{{asset('uploads/products/'.$product->image)}}" alt="{{$product->name." image "}}" style="width:100%;height:80px;">
+            </td>
+            <td class="text-center">
+                <button class="btn btn-info " style="width:100%">
+                    <a href="{{route('product.extraDetails',$product->id)}}">Add</a>
+                </button>
             </td>
             <td>{{$product->created_at }}</td>
             <td>

@@ -26,13 +26,22 @@
         </div>
         <div class="x_content">
           <br>
+          @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
           <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" action="{{route('category.store')}}" method="post">
 @csrf
             <div class="form-group">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Category Name<span class="required"></span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <input type="text" id="cat-name" required="required" name="category_name" class="form-control col-md-7 col-xs-12" placeholder="Category Name">
+                <input type="text" id="cat-name" required="required" name="name" class="form-control col-md-7 col-xs-12" placeholder="Category Name">
               </div>
             </div>
             <div class="form-group">
