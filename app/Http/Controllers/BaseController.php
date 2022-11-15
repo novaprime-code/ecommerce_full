@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\ProductDetail;
 
 class BaseController extends Controller
 {
     //
     public function home(){
         $products = Product::get();
-        $new_products = Product::limit(6)->latest();
+        $new_products = Product::limit(6)->latest()->get();
         return view('front.home', compact('products', 'new_products'));
     }
     public function specialOffer(){

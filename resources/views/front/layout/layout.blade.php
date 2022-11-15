@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootshop online Shopping cart</title>
+    <title>Nova Ecommerce</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -18,6 +18,8 @@
 <!-- Bootstrap style --> 
     <link id="callCss" rel="stylesheet" href="{{asset('themes/bootshop/bootstrap.min.css')}}" media="screen"/>
     <link href="{{asset('themes/css/base.css')}}" rel="stylesheet" media="screen"/>
+	{{-- bootstrap 5 CDN--}}
+
 <!-- Bootstrap style responsive -->	
 	<link href="{{asset('themes/css/bootstrap-responsive.min.css')}}" rel="stylesheet"/>
 	<link href="{{asset('themes/css/font-awesome.css')}}" rel="stylesheet" type="text/css">
