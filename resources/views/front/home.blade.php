@@ -95,7 +95,7 @@
              
              <div>
 
-               <h4><a class="btn" href="{{asset('productView')}}">VIEW</a> <span class="pull-right">{{$value->price}}</span></h4>
+               <h4><a class="btn" href="{{route('productView',$value->id)}}">VIEW</a> <span class="pull-right">{{$value->price}}</span></h4>
               </div>
             </div>
           </div>

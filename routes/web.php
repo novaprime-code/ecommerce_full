@@ -5,6 +5,7 @@ use App\Http\Controllers\BaseController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,8 +26,13 @@ Route::get('/home',[BaseController::class,'home'])->name('home');
 Route::get('/specialOffer',[BaseController::class,'specialOffer'])->name('specialOffer');
 Route::get('/delivery',[BaseController::class,'delivery'])->name('delivery');
 Route::get('/contact-us',[BaseController::class,'contact'])->name('contact-us');
+Route::get('user/login',[BaseController::class,'user_login'])->name('user_login');
+Route::post('user/login',[BaseController::class,'loginCheck'])->name('loginCheck');
+Route::post('user/register',[BaseController::class,'user_store'])->name('user_store');
+Route::get('user/logout',[BaseController::class,'logout'])->name('user_logout');
+
 Route::get('/cart',[BaseController::class,'cart'])->name('cart');
-Route::get('/productView',[BaseController::class,'productView'])->name('productView');
+Route::get('/productView/{id}',[BaseController::class,'productView'])->name('productView');
 
 Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login');
 Route::post('/admin/login',[AdminController::class,'makeLogin'])->name('admin.makeLogin');
@@ -54,6 +60,10 @@ Route::get('/product/extraDetails/{id}',[ProductController::class,'extraDetails'
 
 
 Route::post('/product/extraDetails/{id}',[ProductController::class,'extraDetailsStore'])->name('product.extraDetailsStore');
+
+Route::get('/admin/users',[UserController::class,'index'])->name('admin.users');
+
+Route::post('/admin/delete',[UserController::class,'delete'])->name('user.delete');
 
 
 });

@@ -31,18 +31,26 @@
             {{-- <li><a href="{{route('category.create')}}"><i class="fa fa-home"></i> Add Category <span class="fa fa-chevron-right"></span></a>
               
             </li> --}}
-            <li class=""><a><i class="fa fa-home"></i> Category Manager <span class="fa fa-chevron-down"></span></a>
+            {{-- <i class=""></i> --}}
+            <li class=""><a><i class="fa fa-align-justify"></i> Category Manager <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none;">
                 <li class="current-page"><a href="{{route('category.list')}}">List</a></li>
                 <li><a href="{{route('category.create')}}">Create</a></li>
-                <li><a href="index3.html">Dashboard3</a></li>
+                {{-- <li><a href="index3.html">Dashboard</a></li> --}}
               </ul>
             </li>
-            <li class=""><a><i class="fa fa-home"></i> Product Manager <span class="fa fa-chevron-down"></span></a>
+            <li class=""><a><i class="fa fa-th"></i> Product Manager <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none;">
                 <li class="current-page"><a href="{{route('product.list')}}">List</a></li>
                 <li><a href="{{route('product.create')}}">Create</a></li>
-                <li><a href="index3.html">Dashboard3</a></li>
+                {{-- <li><a href="index3.html">Dashboard</a></li> --}}
+              </ul>
+            </li>
+            <li class=""><a><i class="fa fa-user"></i> User Manager <span class="fa fa-chevron-down"></span></a>
+              <ul class="nav child_menu" style="display: none;">
+                <li class="current-page"><a href="{{route('admin.users')}}">List</a></li>
+                {{-- <li><a href="{{route('product.create')}}">Create</a></li> --}}
+                {{-- <li><a href="index3.html">Dashboard</a></li> --}}
               </ul>
             </li>
           
