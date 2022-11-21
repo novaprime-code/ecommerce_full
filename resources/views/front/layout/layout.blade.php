@@ -56,7 +56,7 @@
 	
 	<script src="{{asset('themes/js/bootshop.js')}}"></script>
     <script src="{{asset('themes/js/jquery.lightbox-0.5.js')}}"></script>
-	
+	@stack('footer-script')
 	<!-- Themes switcher section ============================================================================================= -->
 {{-- <div id="secectionBox">
 <link rel="stylesheet" href="themes/switch/themeswitch.css" type="text/css" media="screen" />

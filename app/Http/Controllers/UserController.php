@@ -14,8 +14,8 @@ class UserController extends Controller
     {
         //
         // $categories = Category::where('status','1')->get();
-        $users =User::get();
-
+        $users =User::all()->except('role','admin');
+        // $users = User::where('role', '!=', 'admin')->get();
         return view('admin.user.index',compact('users'));
 
     }

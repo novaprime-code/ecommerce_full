@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     //
     public function login(){
-        // echo Hash::make('user123');
+        // echo Hash::make('@admin123');
         // exit();
         // echo "Welcome";
         return view('admin.login');

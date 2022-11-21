@@ -49,12 +49,22 @@
 				<h3>{{$product->ProductDetail->title}}</h3>
 				<small>{{$product->name}}</small>
 				<hr class="soft"/>
-				<form class="form-horizontal qtyFrm">
+				<form class="form-horizontal qtyFrm" action="{{route('cart.store')}}" method="post">
+					@csrf
 				  <div class="control-group">
 					<label class="control-label">NPR. <span>{{$product->price}}</span></label>
 					<div class="controls">
-					<input type="number" class="span1" placeholder="Qty."/>
-					  <button type="submit" class="btn btn-large btn-primary pull-right"> Add to cart <i class=" icon-shopping-cart"></i></button>
+					<input type="number" class="span1" placeholder="Qty." name="qty" required/>
+					<input type="hidden" name="product_id" value="{{$product->id}}" readonly="readonly">
+
+					@if (Auth::user())
+					<button type="submit" class="btn btn-large btn-primary pull-right"> Add to cart <i class=" icon-shopping-cart"></i></button>
+
+					@else
+					<button class="btn btn-large btn-primary pull-right"> <a href="{{route('user_login')}}" class="" style="color:#fff; text-decoration: none;">  Add to cart <i class=" icon-shopping-cart"></i></a></button>
+						
+					@endif
+
 					</div>
 				  </div>
 				</form>

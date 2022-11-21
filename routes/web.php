@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +37,10 @@ Route::get('/productView/{id}',[BaseController::class,'productView'])->name('pro
 
 Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login');
 Route::post('/admin/login',[AdminController::class,'makeLogin'])->name('admin.makeLogin');
+
+// cart routes
+Route::post('cart/store',[CartController::class,'store'])->name('cart.store');
+Route::post('cart/delete',[CartController::class,'destroy'])->name('cart.delete');
 
 Route::group(['middleware' => 'auth'],function(){
     Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');

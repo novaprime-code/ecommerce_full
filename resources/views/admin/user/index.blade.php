@@ -23,8 +23,11 @@
             <td>{{$user->created_at }}</td>
           
             <td>
-          
-                <a href="javascript::void(0)" class="btn btn-danger user_delete delete" data-id="{{$user->id}}"><i class=" user_delete fa fa-trash rounded shadow"></i>  </a>
+          @if ($user->role != 'admin')
+          <a href="javascript::void(0)" class="btn btn-danger user_delete delete" data-id="{{$user->id}}
+            "><i class=" user_delete fa fa-trash rounded shadow"></i>  </a>
+              
+          @endif
             </td>
         </tr>
         @endforeach
